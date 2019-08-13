@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/cardview_dark_background"
+    android:layout_height="match_parent"
+    tools:context=".MovieDetailsActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:background="@android:color/white">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:id="@+id/collapsing_bar"
+            android:layout_height="match_parent"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark"
+            app:contentScrim="@color/colorPrimary"
+            app:layout_scrollFlags="exitUntilCollapsed|scroll"
+            android:fitsSystemWindows="true">
+            <fragment
+                android:id="@+id/youtube_player_fragment"
+                android:name="com.google.android.youtube.player.YouTubePlayerSupportFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+                app:layout_collapseMode="none"/>
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:theme="@style/ThemeOverlay.AppCompat.Dark"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                app:layout_collapseMode="pin"
+                app:titleTextColor="#fff" />
+            />
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+   <androidx.core.widget.NestedScrollView
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_marginTop="16dp"
+       android:layout_marginLeft="16dp"
+       android:layout_marginRight="16dp"
+       android:layout_marginBottom="16dp"
+       app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="vertical">
+           <androidx.cardview.widget.CardView
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:elevation="4dp">
+
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:padding="16dp"
+                   android:orientation="vertical">
+
+                   <TextView
+                       android:id="@+id/movie_title"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="Cars"
+
+                       android:textColor="#000"
+                       android:textSize="16sp"
+                       app:fontFamily="@font/varela_round" />
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:layout_width="48dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:background="@drawable/textview_background_yellow"
+                                android:drawableRight="@drawable/imdb_star"
+                                android:padding="4dp"
+                                android:text="IMDb"
+                                android:textColor="#000"
+                                android:textSize="10sp"
+                                android:textStyle="bold"
+                                app:fontFamily="@font/varela_round" />
+
+                        </LinearLayout>
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/genre_recycler"
+                            android:layout_marginRight="24dp"
+                            android:layout_marginLeft="12dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+                    </LinearLayout>
+
+                   <LinearLayout
+                       android:layout_width="match_parent"
+                       android:layout_height="match_parent"
+                       android:orientation="vertical">
+
+                       <TextView
+                           android:id="@+id/movie_details"
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:layout_marginTop="12dp"
+                           android:textColor="#302F2F"
+                           app:fontFamily="@font/varela_round"
+                           tools:text="ashgdasjffwefjwjflksj" />
+
+                       <LinearLayout
+                           android:id="@+id/show_movie_status"
+                           android:layout_marginTop="16dp"
+                           android:layout_width="180dp"
+                           android:layout_height="wrap_content"
+                           android:orientation="horizontal">
+
+                           <TextView
+                               android:layout_width="80dp"
+                               android:layout_height="wrap_content"
+                               android:background="@drawable/textview_background_blue"
+                               android:gravity="center"
+                               android:padding="4dp"
+                               android:text="RELEASED"
+                               android:textSize="12sp"
+                               app:fontFamily="@font/varela_round" />
+
+                           <TextView
+                               android:id="@+id/movie_duration"
+                               android:layout_width="wrap_content"
+                               android:layout_height="wrap_content"
+                               android:layout_marginLeft="16dp"
+                               android:text="192min"
+                               android:textColor="#52AAF7"
+                               app:fontFamily="@font/varela_round" />
+
+                       </LinearLayout>
+
+                       <TextView
+                           android:id="@+id/view_cast"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:layout_gravity="end"
+                           android:text="READ MORE"
+                           android:textColor="#4CAF50"
+                           app:fontFamily="@font/varela_round" />
+                   </LinearLayout>
+
+               </LinearLayout>
+
+           </androidx.cardview.widget.CardView>
+
+           <TextView
+
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:paddingTop="16dp"
+               android:paddingBottom="12dp"
+               android:text="SIMILAR MOVIES"
+               android:textColor="#fff"
+               android:textSize="24sp"
+               app:fontFamily="@font/varela_round" />
+
+           <androidx.recyclerview.widget.RecyclerView
+               android:id="@+id/recycler_view"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"/>
+
+       </LinearLayout>
+
+
+   </androidx.core.widget.NestedScrollView>
+
+
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
